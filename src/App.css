@@ -1,0 +1,15 @@
+.appContainer {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: 28px;
+  margin-top: 30px;
+}
