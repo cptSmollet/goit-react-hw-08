@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import ContactsPage from './pages/ContactsPage/ContactsPage';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import RestrictedRoute from './components/RestrictedRoute/RestrictedRoute';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const App = () => {
 
   return (
     <Layout>
+      <Toaster /> 
       <Routes>
         <Route path="/" element={<RestrictedRoute component={HomePage} />} />
         <Route path="/register" element={<RestrictedRoute component={RegistrationPage} />} />

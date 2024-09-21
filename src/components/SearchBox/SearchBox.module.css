@@ -1,12 +1,20 @@
-.searchData {
-  outline: none;
-  border: 1px solid #74747c;
-  padding: 5px;
-  border-radius: 5px;
-  width: 310px;
-  margin-bottom: 20px;
+.searchBox {
+  margin-bottom: 1em; /* Отступ снизу для блока */
 }
+
+.searchData {
+  background-color: white; /* Белый фон для поля ввода */
+  color: black; /* Черный текст */
+  border: 1px solid #ccc; /* Цвет границы */
+  padding: 0.5em; /* Отступ внутри поля */
+  border-radius: 4px; /* Скругление углов */
+  width: 100%; /* Ширина поля ввода */
+  box-sizing: border-box; /* Учитывать отступы в ширине */
+}
+
 .searchText {
-  color: #000;
-  margin-bottom: 5px;
+  color: black; /* Черный текст для метки */
+  font-weight: bold; /* Полужирный текст для метки */
+  margin-bottom: 0.5em; /* Отступ снизу для метки */
+  display: block; /* Блочный элемент для метки */
 }
