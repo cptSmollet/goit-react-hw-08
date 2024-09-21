@@ -1,4 +1,4 @@
-.contactForm_form {
+.form {
   border: 1px solid #000;
   width: 300px;
   padding: 10px;
@@ -6,43 +6,43 @@
   margin-bottom: 20px;
 }
 
-.contactForm_formLabel {
+.formLabel {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
 }
 
-.contactForm_formText {
+.formText {
   color: black;
 }
 
-.contactForm_formBtn {
+.formBtn {
   padding: 5px 7px;
   border: 1px solid #6a6a61;
   font-size: 14px;
 }
 
-.contactForm_formBtn:hover,
-.contactForm_formBtn:focus {
+.formBtn:hover,
+.formBtn:focus {
   outline: none;
   color: #646cff;
   transition: color 0.25s;
 }
 
-.contactForm_formData {
+.formData {
   outline: none;
   border: 1px solid #74747c;
   padding: 5px;
   border-radius: 5px;
 }
 
-.contactForm_formData:hover,
-.contactForm_formData:focus {
+.formData:hover,
+.formData:focus {
   border: 1px solid #646cff;
   transition: border-color 0.25s;
 }
 
-.contactForm_errorMessage {
-  font-size: 14px;
+.errorMessage {
+  font-size: 2;
   color: red;
 }

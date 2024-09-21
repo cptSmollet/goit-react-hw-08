@@ -1,7 +1,12 @@
-.input {
-  padding: 8px;
-  width: 100%;
-  max-width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.searchData {
+  outline: none;
+  border: 1px solid #74747c;
+  padding: 5px;
+  border-radius: 5px;
+  width: 310px;
+  margin-bottom: 20px;
+}
+.searchText {
+  color: #000;
+  margin-bottom: 5px;
 }

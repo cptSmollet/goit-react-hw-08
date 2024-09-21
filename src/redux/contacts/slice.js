@@ -1,14 +1,20 @@
-import { createSlice, createSelector } from '@reduxjs/toolkit';
-import { fetchContacts, addContact, deleteContact } from './contactsOps';
-import { selectFilter } from './filtersSlice';
+import { createSlice } from "@reduxjs/toolkit";
+import {
+  fetchContacts,
+  deleteContact,
+  addContact,
+} from "./operations";
+
+import { apiLogout } from "../auth/operations";
 
 const contactsSlice = createSlice({
-  name: 'contacts',
+  name: "contacts",
   initialState: {
     items: [],
     loading: false,
     error: null,
   },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchContacts.pending, (state) => {
@@ -20,6 +26,20 @@ const contactsSlice = createSlice({
         state.items = action.payload;
       })
       .addCase(fetchContacts.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(deleteContact.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(deleteContact.fulfilled, (state, action) => {
+        state.loading = false;
+        state.items = state.items.filter(
+          (contact) => contact.id !== action.payload.id
+        );
+      })
+      .addCase(deleteContact.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       })
@@ -35,37 +55,18 @@ const contactsSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      .addCase(deleteContact.pending, (state) => {
-        state.loading = true;
+      .addCase(apiLogout.pending, (state) => {
         state.error = null;
       })
-      .addCase(deleteContact.fulfilled, (state, action) => {
+      .addCase(apiLogout.fulfilled, (state) => {
+        state.items = [];
+        state.error = null;
         state.loading = false;
-        state.items = state.items.filter(
-          contact => contact.id !== action.meta.arg
-        );
       })
-      .addCase(deleteContact.rejected, (state, action) => {
-        state.loading = false;
+      .addCase(apiLogout.rejected, (state, action) => {
         state.error = action.payload;
       });
   },
 });
 
-export const selectContacts = (state) => state.contacts.items;
-export const selectLoading = (state) => state.contacts.loading;
-export const selectError = (state) => state.contacts.error;
-
-export const selectFilteredContacts = createSelector(
-  [selectContacts, selectFilter],
-  (contacts, filter) => {
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
-  }
-);
-
-export default contactsSlice.reducer;
-
-
-
+export const contactsReducer = contactsSlice.reducer;
